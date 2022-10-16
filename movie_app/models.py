@@ -10,8 +10,8 @@ class Director(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
-    duration = models.CharField(max_length=100, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)               # description - описание
+    duration = models.CharField(max_length=100, blank=True, null=True)  # duration - продолжительность
     director = models.ForeignKey(Director, on_delete=models.CASCADE, related_name='movies')
 
     def __str__(self):
