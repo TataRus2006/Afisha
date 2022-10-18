@@ -1,6 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
 from movie_app import views
+from . import swagger
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     # path('api/v1/directors/', views.directors_view),
@@ -19,4 +23,6 @@ urlpatterns = [
     path('api/v1/movies/reviews/', views.MoviesReviewsListAPIView.as_view()),
     path('api/v1/reviews/', views.ReviewListAPIView.as_view()),
     path('api/v1/reviews/<int:id>/', views.ReviewItemUpdateDeleteAPIView.as_view()),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += swagger.urlpatterns

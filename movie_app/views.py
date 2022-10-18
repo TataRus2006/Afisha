@@ -12,6 +12,7 @@ from .serializers import (DirectorListSerializers, MovieListSerializers, ReviewL
 
 
 class DirectorListAPIView(ListCreateAPIView):
+    """List and Create Directors (example of a commentary)."""
     queryset = Director.objects.all()
     serializer_class = DirectorListSerializers
     pagination_class = PageNumberPagination
